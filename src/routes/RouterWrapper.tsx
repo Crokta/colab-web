@@ -1,12 +1,11 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { ClerkProvider } from '@clerk/clerk-react';
-import { viteClerkPublishableKey } from './constants';
-import RootLayout from './layouts/RootLayout.tsx';
-import ProtectedRoute from './routes/ProtectedRoute.tsx';
-import HomePage from './pages/HomePage.tsx';
-import CreateServerModal from './components/modals/CreateServerModal.tsx';
+import RootLayout from '../layouts/RootLayout.tsx';
+import ProtectedRoute from './ProtectedRoute.tsx';
+import HomePage from '../pages/HomePage.tsx';
+import { viteClerkPublishableKey } from '../constants';
 
-function App() {
+const RouterWrapper = () => {
   const navigate = useNavigate();
 
   return (
@@ -18,10 +17,8 @@ function App() {
         <Route path="" element={<RootLayout />}>
           <Route
             path="/"
-            index
             element={
               <ProtectedRoute>
-                <CreateServerModal />
                 <HomePage />
               </ProtectedRoute>
             }
@@ -30,6 +27,6 @@ function App() {
       </Routes>
     </ClerkProvider>
   );
-}
+};
 
-export default App;
+export default RouterWrapper;
