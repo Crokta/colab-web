@@ -6,6 +6,7 @@ import {
   Image,
   Modal,
   rem,
+  Space,
   Stack,
   Text,
   TextInput,
@@ -49,7 +50,8 @@ export const CreateServerModal = () => {
         later in settings.
       </Text>
       <form onSubmit={form.onSubmit(() => {})}>
-        <Stack spacing="md">
+        <Stack>
+          <Space h="md" />
           <Flex justify="center" align="center">
             {!imagePreview && (
               <Dropzone
